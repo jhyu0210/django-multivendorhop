@@ -87,7 +87,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'interiorshop.wsgi.application'
-
+if not DEBUG:
+    CSRF_TRUSTED_ORIGINS = ["https://*.railway.app"]
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
