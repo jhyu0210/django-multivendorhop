@@ -1,1 +1,1 @@
-web: gunicorn interiorshop.wsgi --log-gile -
+web: gunicorn interiorshop.wsgi --log-file -
