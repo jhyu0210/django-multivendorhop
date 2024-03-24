@@ -26,10 +26,12 @@ dotenv_file = os.path.join(BASE_DIR,".env")
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
 SECRET_KEY = os.environ["SECRET_KEY"]
+STRIPE_SECRET_KEY = os.environ["STRIPE_SECRET_KEY"]
+STRIPE_PUB_KEY = os.environ["STRIPE_PUB_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -39,6 +41,7 @@ LOGOUT_REDIRECT_URL = 'frontpage'
 
 SESSION_COOKIE_AGE = 86400 #60*60*24
 CART_SESSION_ID = "cart"
+
 
 
 # Application definition
@@ -53,7 +56,8 @@ INSTALLED_APPS = [
     'apps.core',
     'apps.vendor',
     'apps.product',
-    'apps.cart'
+    'apps.cart',
+    'apps.order'
 ]
 
 MIDDLEWARE = [
@@ -94,23 +98,23 @@ if not DEBUG:
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ["DB_NAME"],
-        # 'django-multivendorshop-postgres', 
-        'USER': os.environ["DB_USER"],
-        'PASSWORD': os.environ["DB_PASSWORD"],
-        'HOST': os.environ["DB_HOST"],
-        'PORT': os.environ["DB_PORT"],
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ["DB_NAME"],
+#         # 'django-multivendorshop-postgres', 
+#         'USER': os.environ["DB_USER"],
+#         'PASSWORD': os.environ["DB_PASSWORD"],
+#         'HOST': os.environ["DB_HOST"],
+#         'PORT': os.environ["DB_PORT"],
+#     }
+# }
 
 
 # Password validation

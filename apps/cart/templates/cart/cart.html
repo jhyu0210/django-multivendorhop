@@ -52,7 +52,7 @@
             </div>
         </div>
 
-        {% comment %} <h2 class="subtitle">Contact information</h2>
+        {% comment %} <h2 class="subtitle">Contact information</h2> {% endcomment %}
 
         <form method="post" action="." id="payment-form">
             {% csrf_token %}    
@@ -154,13 +154,13 @@
                     <button class="button is-dark mt-4 is-uppercase">Checkout</button>
                 </div>
             </div>
-        </form> {% endcomment %}
+        </form>
     {% else %}
         <p>You don't have any products in your cart!</p>
     {% endif %}
 {% endblock content %}
 
-{% comment %} {% block scripts %}
+{% block scripts %}
     <script src="https://js.stripe.com/v3/"></script>
     <script>
         var stripe = Stripe('{{ stripe_pub_key }}');
@@ -190,9 +190,10 @@
             hiddenInput.setAttribute('type', 'hidden');
             hiddenInput.setAttribute('name', 'stripe_token');
             hiddenInput.setAttribute('value', token.id);
+            console.log(token.id)
             form.appendChild(hiddenInput);
 
             form.submit();
         }
     </script>
-{% endblock %} {% endcomment %}
+{% endblock scripts %}

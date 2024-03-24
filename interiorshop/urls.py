@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings #??
+from django.templatetags.static import static as fstatic# Not from django.conf.urls.static 
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.core.urls')),
     path('vendors/', include('apps.vendor.urls')),
     path('cart/', include('apps.cart.urls')),
-    path('', include('apps.product.urls'))
-   
+    path('', include('apps.product.urls')),
+    path('favicon.ico', RedirectView.as_view(url=fstatic('images/Favicon-32x32.png'))),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
