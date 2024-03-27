@@ -18,12 +18,12 @@ def product_details(request,category_slug, product_slug):
     
     if request.method == "POST":
         form = AddToCartForm(request.POST)
-        print("request.POST:::",request.POST)
+        # print("request.POST:::",request.POST)
         if form.is_valid():
-            print("Form is valid?::",form.is_valid())
+            # print("Form is valid?::",form.is_valid())
             quantity = form.cleaned_data['quantity']
             
-            print("Form Quantity?::",quantity)
+            # print("Form Quantity?::",quantity)
             cart.add(product_id=product.id, quantity=quantity, update_quantity=False)
             messages.success(request, "The product was added to Cart!")
             
