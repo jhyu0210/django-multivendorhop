@@ -41,7 +41,7 @@ LOGOUT_REDIRECT_URL = 'frontpage'
 
 SESSION_COOKIE_AGE = 86400 #60*60*24
 CART_SESSION_ID = "cart"
-
+CSRF_TRUSTED_ORIGINS = ['https://127.0.0.1','https://django-multivendorhop-production.up.railway.app']
 
 
 # Application definition
