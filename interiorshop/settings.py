@@ -33,7 +33,7 @@ STRIPE_PUB_KEY = os.environ["STRIPE_PUB_KEY"]
 DEBUG = True
 # DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["localhost","https://django-multivendorhop-production.up.railway.app"]
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL='vendor_admin'
